@@ -29,12 +29,13 @@ body {
 }
 
 .container {
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 90%;
-  height: auto;
 }
 
 .title {
@@ -103,9 +104,10 @@ form button {
   color: var(--text-color);
   font-size: 18px;
   font-weight: bold;
-  padding: 18px;
+  padding: 13px 18px;
   cursor: pointer;
   margin-top: 20px;
+  margin-bottom: 40px;
   border-radius: 5px;
 }
 
@@ -117,8 +119,21 @@ form button:hover {
 
 .pResultado {
   background-color: rgb(109, 255, 182);
+  width: 100%;
   font-size: 18px;
-  margin-top: 10px;
+  margin-top: 30px;
+  border-radius: 5px;
+  padding: 10px 80px;
+  color: var(--primary-color);
+  margin-bottom: 40px;
+}
+
+.badResult {
+  background-color: rgb(255, 150, 150);
+  width: 100%;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 40px;
   border-radius: 5px;
   padding: 10px 80px;
   color: var(--primary-color);
