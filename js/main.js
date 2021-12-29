@@ -1,21 +1,13 @@
-// capturar o evento de submit do formulário
 let form = document.querySelector(".form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   setResultado();
-  // capturando os valores dos inputs
   let inputPeso = event.target.querySelector("#peso");
   let inputAltura = event.target.querySelector("#altura");
 
   let peso = Number(inputPeso.value);
   let altura = Number(inputAltura.value);
 
-  /*
-    Cecando se o peso e altura são diferentes de true, ou seja, se são falsos
-    no caso de falso, então a função setResultado recebe como parametro o peso 
-    inválido e também o parametro de false, para que seja aplicado o fundo vermelho
-    e logo em seguida, um return para que feche a execução da função
-  */
   if (!peso) {
     setResultado("Dados Inválidos", false);
     return;
@@ -29,7 +21,7 @@ form.addEventListener("submit", function (event) {
   const imc = getImc(peso, altura);
   const level = getLevelImc(imc);
 
-  const msg = `Seu imc é ${imc} - ${level}`;
+  const msg = `Your BMI is ${imc} - ${level}`;
   setResultado(msg, true);
 });
 
@@ -37,7 +29,7 @@ form.addEventListener("submit", function (event) {
 function getLevelImc(imc) {
   const levels = [
     "Abaixo do peso",
-    "Peso normal",
+    "Normal Weight",
     "Sobrepeso",
     "Obesidade 1",
     "Obesidade 2",
@@ -63,18 +55,15 @@ function getImc(peso, altura) {
   return imc.toFixed(2);
 }
 
-// criar uma função somente para criar o paragrafo do resultado
 function criaParagrafo() {
   let paragrafo = document.createElement("p");
   return paragrafo;
 }
 
-// criar a funcao para setar o resultado em tela
-// ou seja, mostrar o paragrafo criado em tela, abaixo do button
 function setResultado(msg, isValid) {
   let resultado = document.querySelector(".resultado");
-  resultado.innerHTML = ""; // zerando o html
-  let paragrafo = criaParagrafo(); // paragrafo criado
+  resultado.innerHTML = "";
+  let paragrafo = criaParagrafo();
 
   if (isValid) {
     paragrafo.classList.add("pResultado");
